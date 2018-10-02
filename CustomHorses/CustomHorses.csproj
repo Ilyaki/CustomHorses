@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LegacyDataHolder.cs" />
+    <Compile Include="LegacyDataModel.cs" />
     <Compile Include="LoadTexturePatcher.cs" />
     <Compile Include="ModEntry.cs" />
     <Compile Include="Patch.cs" />

@@ -14,9 +14,9 @@ namespace CustomHorses
 			{
 				if (horse.Sprite == __instance)
 				{
-					if (ModEntry.data?.IDs?.ContainsKey(horse.HorseId) == true)
+					if (ModEntry.data?.GetIDs()?.ContainsKey(horse.HorseId) == true)
 					{
-						var texture = ModEntry.LoadTexture(ModEntry.data.IDs[horse.HorseId]);
+						var texture = ModEntry.LoadTexture(ModEntry.data.GetIDs()[horse.HorseId]);
 						var field = ModEntry._Helper.Reflection.GetField<Texture2D>(__instance, "spriteTexture");
 						field.SetValue(texture);
 

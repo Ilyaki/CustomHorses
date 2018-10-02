@@ -9,21 +9,25 @@ namespace CustomHorses
 {
 	class ModEntry : Mod
 	{
-		private const string dataKey = "7f3d7939-0276-44d6-b377-fd2d4560a6f0";//Random UUID 
+		//private const string dataKey = "7f3d7939-0276-44d6-b377-fd2d4560a6f0";//Random UUID 
 
 		public static IModHelper _Helper;
 
 		public static List<Horse> horses = new List<Horse>();
 
-		public static PerSaveHorseData data;
+		//public static PerSaveHorseData data;
+		public static LegacyDataHolder data;
 
 		public override void Entry(IModHelper helper)
 		{
 			_Helper = helper;
 
+			data = new LegacyDataHolder();
+
 			StardewModdingAPI.Events.TimeEvents.AfterDayStarted += (o, e) =>
 			{
-				data = helper.Data.ReadSaveData<PerSaveHorseData>(dataKey) ?? new PerSaveHorseData();
+				//data = helper.Data.ReadSaveData<PerSaveHorseData>(dataKey) ?? new PerSaveHorseData();
+				data.ReadData();
 
 				horses.Clear();
 				foreach (NPC character in Game1.getFarm()?.characters)
@@ -55,7 +59,7 @@ namespace CustomHorses
 					try
 					{
 						LoadTexture(textureFileName);
-						data.IDs.Add(horse.HorseId, textureFileName);
+						data.GetIDs().Add(horse.HorseId, textureFileName);
 					}
 					catch (Exception e)
 					{
@@ -73,7 +77,8 @@ namespace CustomHorses
 		private void Command_Save(string command, string[] args)
 		{
 			if (Context.IsWorldReady)
-				Helper.Data.WriteSaveData(dataKey, data);
+				data.SaveData();
+			//Helper.Data.WriteSaveData(dataKey, data);
 			else
 				Monitor.Log("You need to load a save first.", LogLevel.Info);
 		}
