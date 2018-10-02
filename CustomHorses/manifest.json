@@ -1,0 +1,10 @@
+{
+  "Name": "CustomHorses",
+  "Author": "Ilyaki",
+  "Version": "1.0.0",
+  "Description": "Allows custom textures for multiple horses across multiple save files (across multiplayer)",
+  "UniqueID": "Ilyaki.CustomHorses",
+  "EntryDll": "CustomHorses.dll",
+  "MinimumApiVersion": "2.7",
+  "UpdateKeys": []
+}
