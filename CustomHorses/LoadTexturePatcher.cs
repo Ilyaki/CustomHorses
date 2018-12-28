@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using StardewValley;
 using StardewValley.Characters;
+using System;
 
 namespace CustomHorses
 {
@@ -16,11 +17,17 @@ namespace CustomHorses
 				{
 					if (ModEntry.data?.GetIDs()?.ContainsKey(horse.HorseId) == true)
 					{
-						var texture = ModEntry.LoadTexture(ModEntry.data.GetIDs()[horse.HorseId]);
-						var field = ModEntry._Helper.Reflection.GetField<Texture2D>(__instance, "spriteTexture");
-						field.SetValue(texture);
+						try
+						{
+							var texture = ModEntry.LoadTexture(ModEntry.data.GetIDs()[horse.HorseId]);
+							var field = ModEntry._Helper.Reflection.GetField<Texture2D>(__instance, "spriteTexture");
+							field.SetValue(texture);
 
-						return false;
+							return false;
+						}catch(Exception)
+						{
+							return true;
+						}
 					}
 				}
 			}

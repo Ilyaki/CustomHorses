@@ -1,7 +1,7 @@
 {
   "Name": "CustomHorses",
   "Author": "Ilyaki",
-  "Version": "1.0.0-legacy",
+  "Version": "1.1.0-legacy",
   "Description": "Allows custom textures for multiple horses across multiple save files (across multiplayer)",
   "UniqueID": "Ilyaki.CustomHorses",
   "EntryDll": "CustomHorses.dll",
