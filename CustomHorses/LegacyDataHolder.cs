@@ -24,12 +24,12 @@ namespace CustomHorses
 
 		public void ReadData()
 		{
-			data = ModEntry._Helper.ReadJsonFile<LegacyDataModel>("horseData.json") ?? new LegacyDataModel();
+			data = ModEntry._Helper.Data.ReadJsonFile<LegacyDataModel>("horseData.json") ?? new LegacyDataModel();
 		}
 
 		public void SaveData()
 		{
-			ModEntry._Helper.WriteJsonFile("horseData.json", data);
+			ModEntry._Helper.Data.WriteJsonFile("horseData.json", data);
 		}
 	}
 }

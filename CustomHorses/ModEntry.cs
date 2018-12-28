@@ -29,7 +29,8 @@ namespace CustomHorses
 
 			data = new LegacyDataHolder();
 
-			StardewModdingAPI.Events.TimeEvents.AfterDayStarted += (o, e) =>
+
+			Helper.Events.GameLoop.DayStarted += (o, e) =>
 			{
 				//data = helper.Data.ReadSaveData<PerSaveHorseData>(dataKey) ?? new PerSaveHorseData();
 				data.ReadData();
